@@ -1,35 +1,45 @@
 {
   "schemaVersion": 1,
   "id": "antip2w",
-  "version": "1.0.0",
-  "name": "AntiP2W-Tools",
-  "description": "Tools to help AntiP2W.",
+  "version": "${version}+${commit_hash}",
+  "name": "AntiP2W Tools",
+  "description": "Tools to fight against pay-to-win servers",
   "authors": [
-    "ItsMeTomTom",
-    "Exteron",
     "DuckGuy",
+    "Exteron",
     "0x06"
   ],
   "contact": {
-    "repo": "https://mivanma.hu"
+    "homepage": "https://github.com/AntiP2WDevelopment/AntiP2W-Addon/",
+    "issues": "https://github.com/AntiP2WDevelopment/AntiP2W-Addon/issues",
+    "repo": "https://github.com/AntiP2WDevelopment/AntiP2W-Addon/",
+    "sources": "https://github.com/AntiP2WDevelopment/AntiP2W-Addon/"
   },
-  "icon": "assets/antip2w/icon.png",
+  "icon": "assets/antip2w/icon/64x64.png",
   "environment": "client",
   "entrypoints": {
     "meteor": [
-      "addon.antip2w.AntiP2W"
+      "antip2w.tools.AntiP2WTools"
     ]
   },
   "mixins": [
     "antip2w.mixins.json"
   ],
   "custom": {
-    "meteor-client:color": "225,25,25"
+    "commit-hash": "${commit_hash}",
+    "meteor-client:color": "225,55,55",
+    "modmenu": {
+      "links": {
+        "modmenu.github_releases": "https://github.com/AntiP2WDevelopment/AntiP2W-Addon/actions"
+      }
+    }
   },
-  "accessWidener": "antip2w.accesswidener",
   "depends": {
-    "java": ">=17",
-    "minecraft": ">=${mc_version}",
-    "meteor-client": "*"
-  }
+    "java": ">=21",
+    "minecraft": ["${minecraft_version}"],
+    "fabric-api": "*",
+    "meteor-client": "*",
+    "viafabricplus": ">=${viafabricplus_version}"
+  },
+  "accessWidener": "antip2w.accesswidener"
 }

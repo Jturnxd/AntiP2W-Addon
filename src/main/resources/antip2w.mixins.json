@@ -1,15 +1,25 @@
 {
   "required": true,
-  "package": "addon.antip2w.mixin",
-  "compatibilityLevel": "JAVA_17",
-  "client": [
-    "ClientConnectionMixin",
-    "ClientPlayerInteractionManagerMixin",
-    "ItemEntityMixin",
-    "MinecraftClientMixin",
-    "PlayerEntityMixin"
-  ],
+  "package": "antip2w.tools.mixin",
+  "compatibilityLevel": "JAVA_21",
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "client": [
+    "module.better_toasts.InGameHudMixin",
+    "module.better_toasts.ToastManager$EntryMixin",
+    "module.better_toasts.ToastManagerMixin",
+    "module.book_colors.BookEditScreenMixin",
+    "propaganda.MinecraftClientMixin",
+    "propaganda.SplashTextRendererMixin",
+    "propaganda.TitleScreenMixin",
+    "propaganda.WindowMixin"
+  ],
+  "mixins": [
+    "util.meteor_string_identifiable_support.WDropdownMixin",
+    "util.meteor_string_identifiable_support.WMeteorDropdown$WValueMixin",
+    "util.meteor_string_identifiable_support.WMeteorDropdownMixin",
+    "network.rawpacket.PacketCodecDispatcherMixin",
+    "network.rawpacket.RegistryByteBufMixin"
+  ]
 }
