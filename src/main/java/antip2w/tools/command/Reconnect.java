@@ -19,7 +19,7 @@ import static com.mojang.brigadier.arguments.StringArgumentType.word;
 public class Reconnect extends BetterCommand {
 
     public Reconnect() {
-        super("reconnect", "Reconnects to the server you are playing on, optionally with another name", "rejoin");
+        super("reconnect", "Reconnects to the server you are playing on, optionally with another name.", "rejoin");
     }
 
     @Override
