@@ -33,6 +33,7 @@ public class AntiP2WTools extends MeteorAddon {
 
     private void addCommands() {
         Commands.add(new Hologram());
+        Commands.add(new LoverfellaDupe());
         Commands.add(new OffhandCrash());
         Commands.add(new PurpurCrash());
         Commands.add(new Reconnect());
