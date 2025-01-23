@@ -17,7 +17,7 @@ This README is still WIP, it will be completed later.
 
 ### Commands
 
-- `.hologram`, `.holo`: Loads an image into the world. (requires creative mode
+- `.hologram`, `.holo`: Loads an image into the world. (requires creative mode)
 - `.loverfella-dupe`, `.lf-dupe`: Does the Loverfella dupe.
 - `.offhand-crash`: Attempts to crash the server by swapping your offhand. Requires many players nearby and an item with a big size. (bytes)
 - `.purpur-crash`, `.funny-crash`: Sends custom payload packets that causes the server to generate chunks at random locations. Only works on 1.18.2 and below.
@@ -27,8 +27,10 @@ This README is still WIP, it will be completed later.
 
 - Anti Exploit: Attempts to block packets that mess up the game.
 - Auto Auth: Automatically authenticates you on server join where supported.
+- Better Macros: Allows macros to be used while a screen is open.
 - Better Toasts: Makes toasts more configurable.
 - Book Colors: Replaces "\&" with the color code chars in books.
+
 ## Legal
 
 This addon uses [textures from Mojang](https://www.minecraft.net/en-us/usage-guidelines).

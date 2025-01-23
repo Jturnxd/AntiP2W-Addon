@@ -16,10 +16,11 @@
     "propaganda.WindowMixin"
   ],
   "mixins": [
+    "module.better_macros.MacroMixin",
+    "network.rawpacket.PacketCodecDispatcherMixin",
+    "network.rawpacket.RegistryByteBufMixin",
     "util.meteor_string_identifiable_support.WDropdownMixin",
     "util.meteor_string_identifiable_support.WMeteorDropdown$WValueMixin",
-    "util.meteor_string_identifiable_support.WMeteorDropdownMixin",
-    "network.rawpacket.PacketCodecDispatcherMixin",
-    "network.rawpacket.RegistryByteBufMixin"
+    "util.meteor_string_identifiable_support.WMeteorDropdownMixin"
   ]
 }

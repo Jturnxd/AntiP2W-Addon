@@ -44,6 +44,7 @@ public class AntiP2WTools extends MeteorAddon {
 
         modules.add(new AntiExploit());
         modules.add(new AutoAuth());
+        modules.add(new BetterMacros());
         modules.add(new BetterToasts());
         modules.add(new BookColors());
     }
