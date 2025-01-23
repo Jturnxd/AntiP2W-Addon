@@ -11,7 +11,7 @@ import static com.mojang.brigadier.arguments.IntegerArgumentType.integer;
 public class PurpurCrash extends BetterCommand {
 
     public PurpurCrash() {
-        super("purpur-crash", "Sends custom payload packets that causes the server to generate chunks at random locations.", "funny-crash");
+        super("purpur-crash", "Sends custom payload packets that causes the server to generate chunks at random locations. Only works on 1.18.2 and below.", "funny-crash");
     }
 
     @Override

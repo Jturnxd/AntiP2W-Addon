@@ -40,7 +40,7 @@ public class BetterToasts extends BetterModule {
     );
 
     public BetterToasts() {
-        super("better-toasts", "Makes toasts better.");
+        super("better-toasts", "Makes toasts more configurable.");
     }
 
     public static void translateToast(MatrixStack matrices, Toast toast, float x, float y, float z) {
