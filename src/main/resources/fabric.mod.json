@@ -15,6 +15,7 @@
     "repo": "https://github.com/AntiP2WDevelopment/AntiP2W-Addon/",
     "sources": "https://github.com/AntiP2WDevelopment/AntiP2W-Addon/"
   },
+  "license": "MIT",
   "icon": "assets/antip2w/icon/64x64.png",
   "environment": "client",
   "entrypoints": {
@@ -38,8 +39,7 @@
     "java": ">=21",
     "minecraft": ["${minecraft_version}"],
     "fabric-api": "*",
-    "meteor-client": "*",
-    "viafabricplus": ">=${viafabricplus_version}"
+    "meteor-client": "*"
   },
   "accessWidener": "antip2w.accesswidener"
 }

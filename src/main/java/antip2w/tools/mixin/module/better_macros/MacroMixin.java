@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(value = Macro.class, remap = false)
-public class MacroMixin {
+public abstract class MacroMixin {
 
     @Redirect(method = "onAction(ZII)Z", at = @At(value = "FIELD", target = "Lnet/minecraft/client/MinecraftClient;currentScreen:Lnet/minecraft/client/gui/screen/Screen;", opcode = Opcodes.GETFIELD))
     private Screen redirect(MinecraftClient mc) {

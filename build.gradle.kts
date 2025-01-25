@@ -10,20 +10,20 @@ base {
 
 repositories {
     // meteor
-    maven { url = uri("https://maven.meteordev.org/releases") }
-    maven { url = uri("https://maven.meteordev.org/snapshots") }
+    maven("https://maven.meteordev.org/releases")
+    maven("https://maven.meteordev.org/snapshots")
 
-    // conditional-mixin
-    maven { url = uri("https://maven.fallenbreath.me/releases") }
-
-    // viaversionplus
-    maven { url = uri("https://repo.viaversion.com") }
-    maven { url = uri("https://maven.lenni0451.net/everything") }
+    // jitpack, currently only used for viafabricplus
     exclusiveContent {
-        forRepository { maven { url = uri("https://jitpack.io") } }
-        filter { includeGroup("com.github.Oryxel") }
+        forRepository {
+            maven {
+                url = uri("https://jitpack.io")
+            }
+        }
+        filter {
+            includeGroup("com.github.Oryxel")
+        }
     }
-    maven { url = uri("https://repo.opencollab.dev/maven-snapshots/") }
 }
 
 loom {
@@ -37,8 +37,6 @@ dependencies {
 
     modImplementation("net.fabricmc.fabric-api:fabric-api:${properties["fabric_api_version"]}")
     modImplementation("meteordevelopment:meteor-client:${properties["meteor_version"]}")
-
-    modImplementation("com.viaversion:viafabricplus:${properties["viafabricplus_version"]}")
 }
 
 tasks {
@@ -48,7 +46,6 @@ tasks {
         val properties = mapOf(
             "version"               to project.version,
             "minecraft_version"     to project.property("minecraft_version"),
-            "viafabricplus_version" to project.property("viafabricplus_version"),
             "commit_hash"           to commitHash
         )
 

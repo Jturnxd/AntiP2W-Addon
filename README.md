@@ -11,7 +11,6 @@ This README is still WIP, it will be completed later.
 - Minecraft (1.21.4)
 - Fabric API (any)
 - Meteor Client (0.6.0-SNAPSHOT)
-- ViaFabricPlus (4.0.1)
 
 ## Features
 
