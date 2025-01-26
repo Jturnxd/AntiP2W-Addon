@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "antip2w",
-  "version": "${version}+${commit_hash}",
+  "version": "${version}",
   "name": "AntiP2W Tools",
   "description": "Tools to fight against pay-to-win servers",
   "authors": [
@@ -28,6 +28,7 @@
   ],
   "custom": {
     "commit-hash": "${commit_hash}",
+    "build-time": "${build_time}",
     "meteor-client:color": "225,55,55",
     "modmenu": {
       "links": {

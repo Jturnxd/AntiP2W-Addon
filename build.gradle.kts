@@ -1,10 +1,16 @@
+import java.time.Instant
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
+
 plugins {
     id("fabric-loom") version "1.9-SNAPSHOT"
 }
 
 base {
     archivesName = properties["archives_name"] as String
-    version = properties["mod_version"] as String
+    val commitHash = System.getenv("GITHUB_SHA")?.toString()?.substring(0..6) ?: "unknown"
+    project.ext.set("commit-hash", commitHash)
+    version = properties["mod_version"] as String + '+' + commitHash
     group = properties["maven_group"] as String
 }
 
@@ -41,12 +47,16 @@ dependencies {
 
 tasks {
     processResources {
-        val commitHash = System.getenv("GITHUB_SHA")?.toString()?.substring(0..6) ?: "unknown"
+        val buildTime = DateTimeFormatter
+            .ofPattern("yyyy-MM-dd'T'HH:mm'Z'")
+            .withZone(ZoneOffset.UTC)
+            .format(Instant.now());
 
         val properties = mapOf(
-            "version"               to project.version,
-            "minecraft_version"     to project.property("minecraft_version"),
-            "commit_hash"           to commitHash
+            "version"           to project.version,
+            "minecraft_version" to project.property("minecraft_version"),
+            "commit_hash"       to project.ext.get("commit-hash"),
+            "build_time"        to buildTime
         )
 
         inputs.properties(properties)

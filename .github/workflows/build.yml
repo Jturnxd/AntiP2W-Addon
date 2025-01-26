@@ -1,33 +1,39 @@
 name: ./gradlew build
 
-on:
-  push:
-    branches: [ "v2" ]
-  pull_request:
-    branches: [ "v2" ]
+on: push
 
 jobs:
   build:
 
     runs-on: ubuntu-24.04
     permissions:
-      contents: read
+      contents: write
 
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-java@v4
-      with:
-        distribution: temurin
-        java-version: 23
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Set up Gradle caching
-      uses: gradle/actions/setup-gradle@v4
+      - name: Set up environment variables
+        run: echo "SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
 
-    - name: Run ./gradlew build
-      run: ./gradlew build
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 23
 
-    - name: Upload build
-      uses: actions/upload-artifact@v4
-      with:
-        name: build
-        path: build/libs/*.jar
+      - name: Set up Gradle caching
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Run ./gradlew build
+        run: ./gradlew build
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Commit ${{ env.SHORT_SHA }}
+          body: |
+            Commit message:
+            ```${{ github.event.head_commit.message }}```
+          tag_name: commit-${{ env.SHORT_SHA }}
+          files: build/libs/*.jar

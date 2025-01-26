@@ -27,7 +27,7 @@ public class AntiP2WLogoDrawer extends LogoDrawer {
         int color = ColorHelper.getWhite(f);
         context.drawTexture(RenderLayer::getGuiTextured, LOGO_TEXTURE, screenWidth / 2 - 128, y, 0, 0, 256, 64, 256, 64, color);
 
-        String text = AntiP2WTools.IS_DEV_ENV ? "Running in IDE" : "Build " + AntiP2WTools.METADATA.getVersion().getFriendlyString();
+        String text = AntiP2WTools.IS_DEV_ENV ? "Running in IDE" : "Commit " + AntiP2WTools.COMMIT + " built at " + AntiP2WTools.BUILD_TIME;
         int textWidth = MCUtil.MC.textRenderer.getWidth(text);
         int textX = screenWidth / 2 - textWidth / 2;
         context.drawText(MCUtil.MC.textRenderer, text, textX, y + 64, color, true);
