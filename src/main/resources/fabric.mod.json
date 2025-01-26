@@ -15,7 +15,7 @@
     "repo": "https://github.com/AntiP2WDevelopment/AntiP2W-Addon/",
     "sources": "https://github.com/AntiP2WDevelopment/AntiP2W-Addon/"
   },
-  "license": "MIT",
+  "license": "CC-BY-NC-SA-4.0",
   "icon": "assets/antip2w/icon/64x64.png",
   "environment": "client",
   "entrypoints": {
