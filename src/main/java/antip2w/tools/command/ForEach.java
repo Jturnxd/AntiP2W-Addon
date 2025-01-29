@@ -52,9 +52,8 @@ public class ForEach extends BetterCommand {
 
             if (ctx.executeTime <= currentTime) {
                 iterator.remove();
+                ctx.execute(this);
             }
-
-            ctx.execute(this);
         }
     }
 
