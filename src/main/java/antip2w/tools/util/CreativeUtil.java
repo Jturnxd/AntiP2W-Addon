@@ -24,15 +24,6 @@ public class CreativeUtil {
        setSlot(MCUtil.getSelectedSlot(), stack);
     }
 
-    public static void setOptimalHotbarSlot(ItemStack stack) {
-        int nextEmptySlot = MCUtil.MC.player.getInventory().getEmptySlot();
-        if (MCUtil.getStackInSelectedSlot().isEmpty() || nextEmptySlot == -1 || nextEmptySlot >= 9) {
-            setSlot(nextEmptySlot, stack);
-        } else {
-            setSelectedSlot(stack);
-        }
-    }
-
     public static void setSlot(int slot, ItemStack stack) {
         MCUtil.MC.player.getInventory().setStack(slot, stack);
         MCUtil.MC.interactionManager.clickCreativeStack(stack, slot + 36);

@@ -24,9 +24,11 @@ public final class SimpleRawPacket implements RawPacket {
 
     public static SimpleRawPacket ofPlay(PacketType<?> type, Consumer<RegistryByteBuf> writer) {
         return new SimpleRawPacket(type, buf -> {
-            if (MCUtil.getPlayNetHandler() != null) {
-                writer.accept(ByteBufUpgrader.REGISTRY.apply(buf));
+            if (MCUtil.getPlayNetHandler() == null) {
+                return;
             }
+
+            writer.accept(ByteBufUpgrader.REGISTRY.apply(buf));
         });
     }
 

@@ -2,11 +2,11 @@ package antip2w.tools.command;
 
 import antip2w.tools.AntiP2WTools;
 import antip2w.tools.util.CreativeUtil;
+import antip2w.tools.util.MCUtil;
 import antip2w.tools.util.Util;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import meteordevelopment.meteorclient.MeteorClient;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.utils.Utils;
 import meteordevelopment.orbit.EventHandler;
@@ -30,7 +30,6 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
 public class Hologram extends BetterCommand {
@@ -154,6 +153,7 @@ public class Hologram extends BetterCommand {
         return lastImagePath;
     }
 
+    // TODO unspaghettify code
     @Nullable
     private BufferedImage tryGetImage(String path) {
         if (path == null) {
@@ -165,14 +165,17 @@ public class Hologram extends BetterCommand {
 
         try {
             image = ImageIO.read(file);
-        } catch (IOException e) {
-            warning("Exception while reading image, see logs for more info");
-            AntiP2WTools.LOGGER.warn("Exception while reading image: ", e);
+        } catch (Exception e) {
+            MCUtil.forceMainThread(() -> {
+                warning("Exception while reading image, see logs for more info");
+                AntiP2WTools.LOGGER.warn("Exception while reading image: ", e);
+            });
             return null;
         }
 
         if (image.getWidth() * image.getHeight() > 128 * 128) {
-            info("Scaling image: %dx%d -> 128x128", image.getWidth(), image.getHeight());
+            BufferedImage finalImage = image;
+            MCUtil.forceMainThread(() -> info("Scaling image: %dx%d -> 128x128", finalImage.getWidth(), finalImage.getHeight()));
             image = scaleImage(image);
         }
 
@@ -180,7 +183,7 @@ public class Hologram extends BetterCommand {
     }
 
     private static BufferedImage scaleImage(BufferedImage image) {
-        BufferedImage resized = new BufferedImage(128, 128, image.getType());
+        BufferedImage resized = new BufferedImage(128, 128, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = resized.createGraphics();
         g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
         g.drawImage(image, 0, 0, 128, 128, 0, 0, image.getWidth(), image.getHeight(), null);

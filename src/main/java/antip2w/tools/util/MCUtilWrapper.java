@@ -1,10 +1,8 @@
 package antip2w.tools.util;
 
 import com.google.common.io.ByteArrayDataOutput;
-import meteordevelopment.meteorclient.systems.modules.Module;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
-import net.minecraft.client.toast.Toast;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.util.Identifier;
@@ -27,20 +25,8 @@ public interface MCUtilWrapper {
         MCUtil.sendCustomPayload(channel, writer);
     }
 
-    default void sendCustomPayload(Identifier channel, byte[] data) {
-        MCUtil.sendCustomPayload(channel, data);
-    }
-
     default boolean notCreative() {
         return MCUtil.notCreative();
-    }
-
-    default boolean isSpectator() {
-        return MCUtil.isSpectator();
-    }
-
-    default boolean notOp() {
-        return MCUtil.notOp();
     }
 
     default boolean isCommandRegistered(String commandName) {
@@ -49,18 +35,6 @@ public interface MCUtilWrapper {
 
     default void sendCommand(String command) {
         MCUtil.sendCommand(command);
-    }
-
-    default void tryAddToast(Toast toast) {
-        MCUtil.tryAddToast(toast);
-    }
-
-    default boolean isActive(Class<? extends Module> clazz) {
-        return MCUtil.isActive(clazz);
-    }
-
-    default void swingHand(boolean clientSide) {
-        MCUtil.swingMainHand(clientSide);
     }
 
     default ItemStack getStackInSlot(int slot) {

@@ -13,6 +13,7 @@ import net.minecraft.command.CommandSource;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+@SuppressWarnings("unchecked")
 public abstract class BetterCommand extends meteordevelopment.meteorclient.commands.Command implements MCUtilWrapper {
 
     public BetterCommand(String name, String description, String... aliases) {

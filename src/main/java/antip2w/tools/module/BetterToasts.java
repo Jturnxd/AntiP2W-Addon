@@ -1,6 +1,6 @@
 package antip2w.tools.module;
 
-import antip2w.tools.util.MCUtil;
+import antip2w.tools.util.Util;
 import net.minecraft.util.StringIdentifiable;
 import meteordevelopment.meteorclient.settings.*;
 import meteordevelopment.meteorclient.systems.modules.Modules;
@@ -44,7 +44,7 @@ public class BetterToasts extends BetterModule {
     }
 
     public static void translateToast(MatrixStack matrices, Toast toast, float x, float y, float z) {
-        if (!MCUtil.isActive(BetterToasts.class)) {
+        if (!Util.isActive(BetterToasts.class)) {
             matrices.translate(x, y, z);
             return;
         }

@@ -36,7 +36,7 @@ public class AntiP2WTools extends MeteorAddon {
 
     private void addCommands() {
         Commands.add(new Hologram());
-        Commands.add(new Foreach());
+        Commands.add(new ForEach());
         Commands.add(new LoverfellaDupe());
         Commands.add(new OffhandCrash());
         Commands.add(new PurpurCrash());
@@ -51,6 +51,7 @@ public class AntiP2WTools extends MeteorAddon {
         modules.add(new BetterMacros());
         modules.add(new BetterToasts());
         modules.add(new BookColors());
+        modules.add(new FreeInteract());
     }
 
     @Override

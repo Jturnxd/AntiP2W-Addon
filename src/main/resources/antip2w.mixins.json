@@ -10,6 +10,8 @@
     "module.better_toasts.ToastManager$EntryMixin",
     "module.better_toasts.ToastManagerMixin",
     "module.book_colors.BookEditScreenMixin",
+    "module.free_interact.ClientPlayerEntityMixin",
+    "module.free_interact.MinecraftClientMixin",
     "propaganda.MinecraftClientMixin",
     "propaganda.SplashTextRendererMixin",
     "propaganda.TitleScreenMixin",
