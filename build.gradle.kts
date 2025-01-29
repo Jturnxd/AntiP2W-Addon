@@ -9,8 +9,10 @@ plugins {
 base {
     archivesName = properties["archives_name"] as String
     val commitHash = System.getenv("GITHUB_SHA")?.toString()?.substring(0..6) ?: "unknown"
+    val buildNumber = System.getenv("GITHUB_RUN_NUMBER")?.toString()?: "-1";
     project.ext.set("commit-hash", commitHash)
-    version = properties["mod_version"] as String + '+' + commitHash
+    project.ext.set("build-number", buildNumber)
+    version = properties["mod_version"] as String + "+b" + buildNumber + '+' + commitHash
     group = properties["maven_group"] as String
 }
 
@@ -57,7 +59,7 @@ tasks {
             "minecraft_version" to project.property("minecraft_version"),
             "commit_hash"       to project.ext.get("commit-hash"),
             "build_time"        to buildTime,
-            "build_number"      to (System.getenv("GITHUB_RUN_NUMBER")?.toString()?: "-1")
+            "build_number"      to project.ext.get("build-number")
         )
 
         inputs.properties(properties)
