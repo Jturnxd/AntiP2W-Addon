@@ -31,11 +31,11 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          name: Commit ${{ env.SHORT_SHA }}
+          name: Build ${{ github.run_number }} (${{ env.SHORT_SHA }})
           body: |
             Commit message:
             ```
             ${{ github.event.head_commit.message }}
             ```
-          tag_name: commit-${{ env.SHORT_SHA }}
+          tag_name: build-{{ github.run_number }}
           files: build/libs/*.jar

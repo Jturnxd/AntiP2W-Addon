@@ -29,6 +29,7 @@
   "custom": {
     "commit-hash": "${commit_hash}",
     "build-time": "${build_time}",
+    "build-number": "${build_number}",
     "meteor-client:color": "225,55,55",
     "modmenu": {
       "links": {

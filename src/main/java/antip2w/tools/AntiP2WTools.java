@@ -27,6 +27,7 @@ public class AntiP2WTools extends MeteorAddon {
     });
 
     public static final String BUILD_TIME = METADATA.getCustomValue("build-time").getAsString();
+    public static final String BUILD_NUMBER = METADATA.getCustomValue("build-number").getAsString();
 
     @Override
     public void onInitialize() {

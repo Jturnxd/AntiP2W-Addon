@@ -56,7 +56,8 @@ tasks {
             "version"           to project.version,
             "minecraft_version" to project.property("minecraft_version"),
             "commit_hash"       to project.ext.get("commit-hash"),
-            "build_time"        to buildTime
+            "build_time"        to buildTime,
+            "build_number"      to (System.getenv("GITHUB_RUN_NUMBER")?.toString()?: "-1")
         )
 
         inputs.properties(properties)
