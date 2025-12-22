@@ -28,7 +28,7 @@ jobs:
       - name: Run ./gradlew build
         run: ./gradlew build
 
-      - name: Release
+      - name: Release1
         uses: softprops/action-gh-release@v2
         with:
           name: Build ${{ github.run_number }} (${{ env.SHORT_SHA }})
