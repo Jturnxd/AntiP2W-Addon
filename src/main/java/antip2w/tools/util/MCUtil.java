@@ -54,7 +54,7 @@ public class MCUtil {
     }
 
     public static int getSelectedSlot() {
-        return MC.player.getInventory().selectedSlot;
+        return MC.player.getInventory().getSelectedSlot();
     }
 
     public static ItemStack getStackInSelectedSlot() {
